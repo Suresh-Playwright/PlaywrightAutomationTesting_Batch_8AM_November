@@ -1,0 +1,2262 @@
+TypeScript :
+============
+1. What is TypeScript ?
+2. JavaScript vs TypeScript
+3. Variables
+4. DataTypes 
+5. Arrays
+6. Objects
+7. Operators
+8. Conditional Statements
+9. Control Flow Statements
+10. Functions
+11. Parameters
+12. Return Types
+13. Type Aliases
+14. Interfaces
+15. Union Types
+16. Enums
+17. Oops
+18. Modules
+19. Exception Handling
+20. Promises and Async / Awaits
+21. Genrics
+22. Type Assertions
+23. Destructuring
+25. Spread & Rest Operators
+26. Optional Chaining
+27. Nullish Coalescing
+28. Type Narrowing
+29. Literal Types
+30. Intersection Types
+31. Type guards
+32. Utitlity Types : Partial , Required , Pick , Omit , ReadOnly , Record
+33. Abstract Classes
+34. Higher Order Functions
+35. Callback functions
+36. Array Methods
+37. Working with JSON
+38. FileHandling
+39. TypeScript configurations
+40  npm and package management
+
+
+------------------------------------------------------------------------------
+What is TypeScript ?
+
+JavaScript is a programming langauge used to develop dynamic and interactive web applications
+
+For example:
+
+1. When we click a Login Button , some action happens
+2. When we enter username and password the application processes the information
+3. When we click Submit , the application validates the details
+
+All these details or functionalities can developed by JavaScript.
+
+
+What is Type Script ?
+
+Typescript is a programming language developed by Microsoft it is built on top of JavaScript.
+
+In Simplewords , Typescript is JavaScript with additional features , especially static type checking.
+
+It helps developers identify certain errors during the developmenet rather thant discovering them only when the application runs.
+
+One Important Point :  Browsers do not direcctly execute TypeScript , Typescript code is converted into JavaScript compiler.
+
+JavaScript Code :
+
+let username= "John";
+
+username=100;
+
+console.log(username); // 100
+
+
+JavaScript allows us the assign a number to the variable even though it initially contained  stringg.
+
+TypeScriptCode:
+
+let username: string= "John";
+
+username=100;
+
+console.log(username); // error
+
+
+Here , Typescript identifies a type mismatch because we declared username as string.
+
+*** Typescript help us catch type realted mistakes during development.
+
+
+Javascript vs TypeScipt:
+========================
+
+
+
+If JavaScript is already available , why  do we need TypeScript ?
+
+As application become bigger , managinng JavaScrip code becomes more challenging.
+
+TypeScript helps us maintain code quality by providing:
+
+1. Static typee checking
+2. Better code completion.
+3. Improve Readability
+4. Easy Maintain
+5. Error identification.
+ 
+Variables :
+=============
+Imagine youare developing a login application.
+
+We need to store different type information .
+1. Username
+2. Password
+3. Email
+4. Age 
+5. Mobile Number
+
+Where do we store Information ?
+
+We use somthing called as Variables .
+
+
+A variable is  a named storage location uses to hold a value that our program can access and work with.
+
+
+let username:string="Suresh";
+let age:number= 25
+let isActive:boolean= true;
+
+
+username is the variable name , string is the datatype  , John is the value.
+
+
+Syntax:
+
+let variablename: dataType=value;
+
+
+Type of variables in TypeScript:
+--------------------------------
+
+1. var
+2. let
+3. const
+
+var in TypeScript:
+------------------
+
+var is one of the oldest ways to declare variables in JavaScript and TypeScript
+
+We can declare a variable using the var keyword.
+
+
+We can also assigne its value and redeclare it within the same scope.
+
+var username: string="John";
+console.log(username)
+username= "David"
+console.log(username)
+// Redeclaration
+var age:number=25;
+var age:number =27;
+console.log(age)
+
+var is a function scoped , not block scoped
+
+This means a variable declared inside an if block can also be accessed outside that block , provided it is with in the same function.
+
+For modern typescript : prefer let and const instead of var.
+
+let in TypeScript :
+
+We use let when we want to declare a variable whose value may change during program execution.
+For example , imagine we are testing a login application
+
+Intially , the login status is false.
+
+After entering valid credentials , the login status becomes true
+
+So the value changes during the execution . In  this situation we can use let.
+
+let loginStatus: boolean= false;
+console.log(loginStatus)
+
+loginStatus=true;
+console.log(loginStatus)
+
+const in TypeScript:
+--------------------
+
+We use const when we don't want to re-assign a variable after intialization.
+
+For example: consider the application URL used in  our automation framework
+
+We generally don't want to change this URL accidently during test execution.
+So we can declare it using const..
+
+// can we redeclare a let variable in the same scope
+// No
+// let age: number=25;
+// let age: number=27;
+
+// var age1:number=25;
+// var age1:number=27;
+
+
+
+
+// BLOCK SCOPE
+
+// if(true)
+// {
+//     let  city: string= "Hyd";
+//     console.log(city)
+// }
+// console.log(city)
+
+const applicationURL: string= "https://www.google.com"
+console.log(applicationURL)
+
+// can we reassign a const variable ?
+
+// No
+const age=25;
+age=30;
+console.log(age)
+
+// can we declare const without initializing it ?
+const username: string;
+// No
+
+
+
+
+1. Use const when re-assignment is not required
+2. Use let when the value needs to change
+3. Avoid var in modern TypeScript projects.
+
+
+DataTypes:
+----------
+
+TypeScript is a Strongly typed programming langauge built on top of JavaScript.
+
+DataTypes define what kind of value a variable can store,
+such as a number , string , boolean , array , Object ...
+
+String DataType:
+----------------
+
+A string data type is used to store text values.
+
+// let , const
+let employeeName:string="Rahul";
+// companyName // Google
+let companyName:string="Google";
+
+console.log(employeeName)
+console.log(companyName)
+
+// "" , '' ,`` (Template Literals)
+
+let name1:string='Suresh';
+let name2:string="Sireesha";
+let city:string= `Hyderabad`
+console.log(name1)
+console.log(name2)
+console.log(`My City Name is: ${city}`)
+
+Number DataType:
+----------------
+
+The number data type is used store numeric values , including integers and decimal numbers.
+
+
+// employeeId , salary , percentage , NetIncome
+let employeeId:number=101
+let salary:number=45000
+let percentage:number=85.5
+let NetIncome:number=200000;
+console.log(employeeId, salary , percentage , NetIncome)
+
+
+Boolean Data Type:
+------------------
+Boolean stores only two values: true or false.
+
+Yes - true
+No - false
+
+let isActive:boolean=true;
+let isLoggedIn:boolean=false
+console.log(isActive, isLoggedIn)
+
+
+
+Array Data Type:
+-----------------
+An array is used to store multiple values of the same data type.
+
+[10,20,30,40,50]
+
+Array Index value starts from 0
+
+10 ----> 0 , 20 ----> 1 , 30----> 2, 40 ----->3 , 50 ----->4
+ Number Arrays
+let numbers:number[]=[10,20,30,40,50];
+console.log(numbers)
+console.log(numbers[0])
+console.log(numbers[1])
+console.log(numbers[2])
+console.log(numbers[3])
+console.log(numbers[4])
+
+
+
+String Array:
+
+let employees: string[] =["Rahul","Priya","Amit"]
+console.log(employees)
+console.log(employees[0])
+
+Array using generic Syntax:
+----------------------------
+let marks: Array<number>=[80,90,85]
+console.log(marks)
+
+
+Tuple DataType:
+---------------
+A tuple is used to store multiple values with specific datatypes and positions
+
+let employee:[number, string,boolean]=[101,"Rahul",true];
+console.log(employee)
+
+
+Any DataType:
+--------------
+any allows a variable to store values of any data type.
+
+
+let data:any=100;
+console.log(data);
+
+data="Hello"
+console.log(data)
+
+data=true;
+console.log(data)
+
+
+Unknown DataType:
+-----------------
+unknown can store any type of value but Typescript requires you to check it's type before performing type specific operations.
+
+
+
+let value:unknown="Hello";
+
+if(typeof value==="string")
+{
+   console.log(value)
+
+}
+
+
+void DataType:
+--------------
+void generally used for functions that do not return a meaningful value.
+
+function displayMessage(): void {
+
+console.log("Hello");
+
+}
+displayMessage()
+
+
+Null DataType:
+----------------
+null represents an intentional absence of a value.
+
+let employeeName: string | null = null;
+
+employeeName="Rahul"
+console.log(employeeName)
+
+Undefined DataType:
+-------------------
+
+Undefined represents a variable that has been declared but has not been assigned a value.
+
+
+let employeeName: string | undefined;
+
+console.log(employeeName)
+
+
+Never DataType:
+---------------
+
+never represents a value that never occurs , it is commonly used for functions that never complete normally , such as function that always thrown an error.
+
+
+function throwError():never
+{
+    throw new Error("Something Went Wrong")
+
+}
+
+
+
+Enum DataType:
+--------------
+Enum is used to define a set of named constants.
+
+enum Status {Pending , Approved, Rejected}
+
+let orderStatus: Status= Status.Approved
+console.log(orderStatus)
+
+Object DataType:
+----------------
+Object stores data in key-value pairs
+
+let employee : {id:number, name:string , salary:number}=
+
+{
+
+  id: 101 , name:"RAHUL" , salary:45000
+}
+
+console.log(employee.id)
+
+
+Union Type:
+-----------
+Union allows a variable to accept more than one specified data type.
+
+
+let employeeId: number | string ;
+
+employeeId=101
+console.log(employeeId)
+employeeId="101"
+console.log(employeeId)
+
+
+Literals DataTypes:
+--------------------
+Literal types restrict a variable to specific predefine values.
+
+let browser: "Chrome" | "Firefox" | "Safari"
+
+browser= "Chrome"
+
+console.log(browser)
+
+browser="Opera"
+console.log(browser)
+
+
+
+
+Arrays in TypeScript :
+----------------------
+
+Imagine you want to store five student names 
+
+Without arrays , how do you store them ?
+
+let student1 : string= "Suresh";
+let student2 : string= "Ramesh";
+let student3 : string= "Mahesh";
+let student4 : string= "Rajesh";
+let student5 : string= "Kiran";
+
+What if we have 100 students ? Do we need to create 100 Variables ?
+
+No 
+
+Instead , we can store all student names inside a single variable using an Array.
+
+let students : string[]=[
+
+"Suresh" , "Ramesh" , "Mahesh" , "Rajesh" ,"Kiran"
+
+
+
+];
+
+console.log(students)
+
+
+Definition:
+
+An array is a collection of multiple values stored in a single variable. In TypeScript , arrays can be declared with specific data types.
+
+
+Why do we use array ?
+
+1. Store multiple values in one variable
+2. Avoid creating multiple individual variables.
+3. Easily retrive data using indexes
+4. Perform operations using loops
+5. Add , remove and update elements
+6. Handle dyanmic application data.
+
+Array Declaration in TypeScript:
+-------------------------------
+
+Approach 1 : Using square brackets
+
+
+let numbers: number[]=[10,20,30,40,50,60]
+
+let names: string[]= ["Suresh","Ramesh"]
+
+let isActive : boolean[] =[true , false , true]
+
+
+
+
+Approach 2 : Using Array genric syntax
+
+let numbers : Array<number>=[10,20,30]
+
+let names : Array<string>=["suresh"]
+
+let status : Array<boolean>=[true,false]
+
+
+
+Array Indexing :
+-----------------
+Every array element has an index.
+
+Array indexing starts from zero , not one.
+
+
+let courses: string[] =["Java" , "Python" , "JavaScript" ,"TypeScript","Playwright"]
+console.log(courses[0]); // Java
+console.log(courses[1]); // Python
+console.log(courses[2]);
+console.log(courses[10]); // undefined
+
+
+Array Properties:
+-----------------
+
+lenght: The length property returns the total number of elements.
+
+
+let courses: string[] =["Java" , "Python" , "JavaScript" ,"TypeScript","Playwright"]
+console.log(courses.length)
+
+Accessing the last element:
+---------------------------
+let courses: string[] =["Java" , "Python" , "JavaScript" ,"TypeScript","Playwright"]
+console.log(courses.length-1) ; //4
+
+console.log(courses[courses.length-1]) ; //courses[5-1] ; courses[4] // Playwright
+
+
+
+Updating array elements:
+------------------------
+let courses: string[] =["Java" , "Python" , "JavaScript" ,"TypeScript","Playwright"]
+courses[1]="GenAI"
+courses[5]="CodeGen"
+console.log(courses)
+console.log(courses.length)
+
+Important Array Methods in TypeScript:
+--------------------------------------
+push() : Adds one or more elements to the end of an array
+
+
+let courses: string[] =["Java" , "Python" , "JavaScript" ,"TypeScript","Playwright"]
+
+courses.push("GenAI")
+console.log(courses)
+console.log(courses.length)
+
+PS H:\Playwright_GenAI\TypeScript_7AM> node Arrays.ts
+[ 'Java', 'Python', 'JavaScript', 'TypeScript', 'Playwright', 'GenAI' ]
+6
+PS H:\Playwright_GenAI\TypeScript_7AM> 
+
+
+pop(): Removes the last element
+
+let courses: string[] =["Java" , "Python" , "JavaScript" ,"TypeScript","Playwright"]
+
+courses.push("GenAI")
+console.log(courses)
+console.log(courses.length)
+courses.pop()
+console.log(courses)
+console.log(courses.length)
+
+PS H:\Playwright_GenAI\TypeScript_7AM> node Arrays.ts
+[ 'Java', 'Python', 'JavaScript', 'TypeScript', 'Playwright', 'GenAI' ]
+6
+[ 'Java', 'Python', 'JavaScript', 'TypeScript', 'Playwright' ]
+5
+PS H:\Playwright_GenAI\TypeScript_7AM> 
+
+
+unshift() : Adds elements at the beginning.
+
+let courses: string[] =["Java" , "Python" , "JavaScript" ,"TypeScript","Playwright"]
+
+courses.unshift("GenAI")
+console.log(courses)
+console.log(courses.length)
+
+
+PS H:\Playwright_GenAI\TypeScript_7AM> node Arrays.ts
+[ 'GenAI', 'Java', 'Python', 'JavaScript', 'TypeScript', 'Playwright' ]
+6
+PS H:\Playwright_GenAI\TypeScript_7AM> 
+
+
+
+shift() : Removes the fist element
+
+
+let courses: string[] =["Java" , "Python" , "JavaScript" ,"TypeScript","Playwright"]
+
+courses.unshift("GenAI")
+console.log(courses)
+console.log(courses.length)
+courses.shift()
+console.log(courses)
+console.log(courses.length)
+
+
+
+PS H:\Playwright_GenAI\TypeScript_7AM> node Arrays.ts
+[ 'GenAI', 'Java', 'Python', 'JavaScript', 'TypeScript', 'Playwright' ]
+6
+[ 'Java', 'Python', 'JavaScript', 'TypeScript', 'Playwright' ]
+5
+PS H:\Playwright_GenAI\TypeScript_7AM> 
+
+
+
+
+includes() : Checks whether an element exists in an array.
+
+let courses: string[] =["Java" , "Python" , "JavaScript" ,"TypeScript","Playwright"]
+console.log(courses.includes("Playwright"))
+console.log(courses.includes("GenAI"))
+
+
+PS H:\Playwright_GenAI\TypeScript_7AM> node Arrays.ts
+true
+false
+PS H:\Playwright_GenAI\TypeScript_7AM> 
+
+
+indexOf() : Returns the index of an element. Returns -1 if it is not found.
+
+let courses: string[] =["Java" , "Python" , "JavaScript" ,"TypeScript","Playwright"]
+console.log(courses.indexOf("Playwright"))
+console.log(courses.indexOf("GenAI"))
+
+PS H:\Playwright_GenAI\TypeScript_7AM> node Arrays.ts
+4
+-1
+PS H:\Playwright_GenAI\TypeScript_7AM> 
+
+
+
+slice():  Extracts a portion of an array without modifying the original array.
+
+array.slice(startIndex,endIndex)
+
+Remember : The endIndex is excluded..
+
+
+
+let courses: string[] =["Java" , "Python" , "JavaScript" ,"TypeScript","Playwright"]
+
+let result=courses.slice(1,4)
+console.log(result)
+
+
+
+PS H:\Playwright_GenAI\TypeScript_7AM> node Arrays.ts
+[ 'Python', 'JavaScript', 'TypeScript' ]
+PS H:\Playwright_GenAI\TypeScript_7AM> 
+
+
+splice(): Adds , removes or replace elements in the original array.
+
+array.splice(startIndex,deleteCount,item1 ,item2);
+
+Remove an element:
+
+let numbers:number[]=[10,20,30,40,50];
+
+//numbers.splice(0,2)
+console.log(numbers)
+numbers.splice(1,2)
+console.log(numbers)
+
+
+
+PS H:\Playwright_GenAI\TypeScript_7AM> node Arrays.ts
+[ 10, 20, 30, 40, 50 ]
+[ 10, 40, 50 ]
+PS H:\Playwright_GenAI\TypeScript_7AM> 
+
+
+Adds an element:
+
+
+let numbers:number[]=[10,20,30,40,50];
+
+//numbers.splice(0,2)
+console.log(numbers)
+numbers.splice(1,2)
+console.log(numbers)
+numbers.splice(1,0,30,70,60)
+console.log(numbers)
+
+
+
+Replace elements:
+
+
+
+let numbers:number[]=[10,20,30,40,50];
+
+numbers.splice(1,1,100)
+console.log(numbers)
+
+
+
+PS H:\Playwright_GenAI\TypeScript_7AM> node Arrays.ts
+[ 10, 100, 30, 40, 50 ]
+PS H:\Playwright_GenAI\TypeScript_7AM> 
+
+
+
+
+
+join() : Converts array elements into a string
+
+let courses: string[] =["Java" , "Python" , "JavaScript" ,"TypeScript","Playwright"]
+
+let result=courses.join(",");
+console.log(result)
+console.log(typeof result) 
+
+
+PS H:\Playwright_GenAI\TypeScript_7AM> node Arrays.ts
+Java,Python,JavaScript,TypeScript,Playwright
+string
+PS H:\Playwright_GenAI\TypeScript_7AM> 
+
+
+
+
+sort() : sort an array elements
+
+
+
+let courses: string[] =["Java" , "Python" , "JavaScript" ,"TypeScript","Playwright"]
+
+let result=courses.join(",");
+console.log(result)
+console.log(typeof result) 
+courses.sort()
+console.log(courses)
+
+
+[ 'Java', 'JavaScript', 'Playwright', 'Python', 'TypeScript' ]
+PS H:\Playwright_GenAI\TypeScript_7AM> 
+
+
+
+reverse():
+
+Reverse the Original array
+
+
+
+
+
+
+Strings :
+---------
+ A string is a data type used tp store a sequence of characters.
+
+
+Charcters Can be :
+
+1. Alphabets : Hello
+2. Numbers represented as Text : '123455'
+3. Special characters : @ . # , $
+4. Spaces : "Hello World"
+
+
+Syntax:
+
+let variableName : string ="value";
+
+
+Whenever we want to store text-based information in our application , we use the string data type.
+
+For example , student names , email , addresses , passwords , usernames , browserUrl's , error messages and application titles
+
+All these values can be stored using Strings.
+
+Three Wya to Declare Strings:
+-----------------------------
+
+1. Single Quotes:
+
+let firstName : string = 'Suresh'
+
+2. Double Quotes:
+
+let lastName : string = "A"
+
+3. Template Literals (Backticks)
+
+let name : string = `Suresh`
+
+
+Template literals are especially usefull when inserting variables into strings.
+
+
+let student : string = "Suresh"
+let course : string = "TypeScript"
+
+let message : string = `Welcome ${student} to ${course} training`
+console.log(message)
+
+Remember : Template literals use backticks, not single or double quotes.
+
+
+
+String Length Property :
+------------------------
+
+The length property returns the total number of characters in a string . Including spaces.
+
+
+
+let course : string = "Playwright";
+
+console.log(course.length)
+
+
+
+Accessing Characters Using Index :
+----------------------------------
+
+Every character in a string has an Index.
+
+String indexing starts from 0.
+
+SURESH
+
+S U R E S H 
+0 1 2 3 4 5
+
+Index starts at 0 and ends at length -1
+
+
+let studentName: string ="Suresh";
+console.log(studentName[0])
+console.log(studentName[1])
+console.log(studentName[2])
+console.log(studentName[3])
+console.log(studentName[4])
+console.log(studentName[5])
+console.log(studentName[6])
+
+
+
+Methods in Strings :
+--------------------
+1. toUpperCase() : Converts all characters into UpperCase.
+let text:string= "typescript";
+
+console.log(text.toUpperCase())
+
+2. toLowerCase() : Converts all characters into LowerCase
+
+
+
+let text:string= "TYPESCRIPT";
+
+console.log(text.toLowerCase())
+
+
+3. trim() - Remove spaces from the beginning and end of the string.
+
+
+let username: string = "        Suresh        ";
+console.log(username.trim())
+
+4. trimStart() - Removes spaces only from the beginning
+
+
+let username: string = "        Suresh        ";
+console.log(username.trimStart())
+console.log(username.trimEnd())
+
+
+6. includes () : Checks whether a string contains a particular word or character.'
+
+
+Returns the Boolean value :  true or false.
+
+
+
+
+
+
+
+Objects in TypeScript :
+----------------------
+An object is a collection of properties(data) and methods(functions) that represent a real world entity.
+
+Real world example:
+
+A student has :
+
+1. Name
+2. Age
+3. Roll Number
+4. Study()
+
+let student = {
+    name:"Rahul",
+    age:20,
+    rollNo:101,
+    study: function()
+    {
+        console.log("Student is studying")
+    }
+}
+
+// Access Properties
+console.log(student.name)
+console.log(student.age)
+
+// Call Method
+student.study()
+
+Operators in TypeScript:
+--------------------------
+
+Suppose you have 10 chocolates and your friend gives you another 5 chocolates. How many chocolates do you have ?
+
+
+We use a symbol + to perform addition . This symbol is called an Operator.
+
+An Operator is a special symbol used to perform operations on values or variables.
+
+let a: number=10;
+let b: number=5;
+console.log(a+b)
+
+a and b are operands.
++ is the Operator.
+
+
+Types of Operators:
+
+1. Arithmetic
+2. Assignment
+3. Comparision 
+4. Logical 
+5. Increment and Decrement
+6. Ternary Operator
+7. Type Operators
+8. String Operators
+
+Arithmetic Operators:
+----------------------
+Arithmetic Opertors are used to perform mathematical calculations like addition , subtraction , multilication , division  , modulus , Exponent.
+
+let a: number=10;
+let b: number=5;
+console.log(a+b) // addition
+console.log(a-b) // Subtraction
+console.log(a*b) // Multiplication
+console.log(a/b) // Divison
+console.log(a%b) // Modulus (Remainder)
+console.log(a**b) // Exponentiation
+
+PS H:\Playwright_GenAI\TypeScript_7AM> node Operator.ts          
+15
+5
+50
+2
+0
+100000
+PS H:\Playwright_GenAI\TypeScript_7AM> 
+
+Assignment Operators:
+---------------------
+Assignment Operators are Used to assign values to variables or update existing values.
+
+
+=  a=10
++= a+=5 a=a+5;
+-= a-=5 a= a-5;
+*= a*=5 a= a*5
+/= a/= 5 a= a/5
+
+%= a%=5 a= a%5
+
+let a: number=10;
+let b: number=5;
+// console.log(a+b) // addition
+// console.log(a-b) // Subtraction
+// console.log(a*b) // Multiplication
+// console.log(a/b) // Divison
+// console.log(a%b) // Modulus (Remainder)
+// console.log(a**b) // Exponentiation
+
+a+=5;
+console.log(a)
+a-=5;
+console.log(a)
+a*=5;
+console.log(a)
+a/=5;
+console.log(a)
+a %=5;
+console.log(a)
+
+Comparision Operators:
+-----------------------
+
+== Equal Value
+
+=== Equal value and type
+
+!= Not equal the value
+ !== Not equal the value and type
+> Greater than
+< Less than
+ >= Greater than or equal to
+<= Less than or equal to
+let a: number=10;
+let b: number=5;
+// console.log(a+b) // addition
+// console.log(a-b) // Subtraction
+// console.log(a*b) // Multiplication
+// console.log(a/b) // Divison
+// console.log(a%b) // Modulus (Remainder)
+// console.log(a**b) // Exponentiation
+
+// a+=5;
+// console.log(a)
+// a-=5;
+// console.log(a)
+// a*=5;
+// console.log(a)
+// a/=5;
+// console.log(a)
+// a %=5;
+// console.log(a)
+
+console.log(a>b)
+console.log(a<b)
+console.log(a==b)
+console.log(a===b)
+console.log(a!=b)
+console.log(a!==b)
+console.log(a>=b)
+console.log(a<=b)
+
+Logical Operators:
+------------------
+Logical Operators are used to combine multiple conditions
+
+ && AND
+ || OR
+  ! NOT
+let attendance : number=85;
+let feePaid : boolean= false;
+console.log(attendance>=75 && feePaid) //
+console.log(attendance>=75 || feePaid) //
+console.log(!feePaid)
+
+
+Increment and Decrement Operators:
+----------------------------------
+
+Suppose a counter value is 10 . If we increase it by 1 , it become 11. - Increment
+
+If we decrease it by 1 , It become 9 , - Decrement
+
+
+++ Increases by 1
+-- 	Decreases by 1
+
+let c: number =10;
+c++
+console.log(c)
+c--
+console.log(c)
+
+
+++c c+1=c;
+10+1=c
+11=c
+11
+--c c-1=c
+
+11-1=c
+10=c
+
+Conditional Statements:
+------------------------
+
+
+Imgine you are going to an Interview:
+
+1. If you pass the interview , you get selected.
+2. If you fail the interview , You don't get selected.
+
+
+How can we Implement this decision making logic using Typescript ?
+
+
+We use Conditional Statements ?
+
+Conditional Statements are used to execute different blocks of code based on whether a given condition evaluates to true or false.
+
+
+if Statement  - Executes code when condition is true
+
+if-else - Selects between two blocks
+
+if-else-if CheckS Multiple conditions
+Nested If -  Checks condition inside another condition
+
+switch - Selects one case from multiple options
+
+Ternary Operator - Short form of if-else
+
+
+if Statement:
+----------------
+
+The if statement executes a block of code oonly  when the condition is true.
+
+
+if(condition)
+{
+   // Code executes when condition is true
+
+}
+
+Age Eligibility
+----------------
+
+
+let age: number = 25;
+
+
+if(age>=18)
+{
+    console.log("You are eligible for Vote")
+}
+
+
+if-else Statement:
+------------------
+The if-else statement executes one block when the condition is true and another block when the condition is false.
+
+Syntax:
+
+if(condition)
+{
+   // True Block
+
+}
+else
+{
+
+   // False Block
+}
+
+
+if-else-if Statement:
+---------------------
+When we have multiple conditions to check , we use the if else if ladder.
+
+Syntax:
+
+if(condition1)
+{
+    // Block 1
+}
+else if(condition 2)
+{
+
+  // Block 2
+}
+else if(condition 3)
+{
+
+    // Block 3
+}
+else
+{
+
+   // Default Block
+}
+
+Student Grade Calculations:
+
+let marks : number =85;
+
+if(marks>=90){ console.log("Grade A+")}
+
+else if(marks >=80) {console.log("Grade A")}
+
+else if(marks >=70) {console.log("Grade B")}
+
+else if (marks >=60) {console.log("Grade C")}
+
+else if(marks >=35) {console.log("Grade D")}
+
+else { console.log("Fail")}
+
+
+
+Nested If Statement :
+---------------------
+
+An if statement written inside another if statement is called a nested if statement.
+
+if(condition)
+{
+    if(condition)
+    {
+    }
+}
+
+
+Job Eligiblity Check
+
+let age : number =25;
+let qualification : string = "B.Tech"
+
+if(age>=21)
+{
+
+   if(qualification==="B.Tech")
+   {
+      console.log("Eligible for the Job")
+   }
+else 
+{
+   console.log("Qualification Not Eligible");
+
+}
+
+}
+else
+{
+   console.log("Age is Not eligible")
+
+}
+
+
+Login and Dashboard validation:
+
+
+let isLoggedIn : boolean = true
+let is Admin: boolean = true
+
+if(isLoggedIn)
+{
+    console.log("User Logged In");
+
+    if(isAdmin)
+
+    {  console.log("Admin Dashboard") else {console.log("User Dashboard")}}
+
+}
+else
+{console.log("Please login first")}
+
+
+
+
+
+
+Switch Statement:
+-----------------
+
+The switch statement is used when we need to execute one block of code from Multiple possible cases based on a single expression.
+
+
+switch(expreesion)
+{
+    case value1: 
+                // code
+                 break;
+    case value2: 
+                // code
+                 break;
+    case value3: 
+                // code
+                 break;
+    default :
+             // Default Code
+   
+
+
+}
+
+
+Day Section :
+let day : number =3 ;
+
+switch(day)
+{
+    case 1 :
+        console.log("Monday");
+        break;
+    case 2 :
+        console.log("Tuesday");
+        break;
+    case 3 :
+        console.log("WednesDay");
+        break
+    case 4 :
+        console.log("Thursday")
+        break
+    case 5 : 
+        console.log("Friday")
+        break;
+    case 6:
+        console.log("Saturday")
+        break;
+    case 7:
+        console.log("Sunday");
+        break;
+    default:
+        console.log("Invalid Day")
+
+
+
+}
+
+
+
+
+Ternary Operator :
+-------------------
+
+
+The Ternary Operator is a shortcut or alternative to if else statement
+
+
+
+Syntax:
+
+condition ? expressionTrue : expressionFALSE
+
+
+Pass or Fail
+
+let marks : number =80;
+
+let result : string = marks>=35 ? "Pass" : "Fail"
+console.log(result)
+
+
+
+
+
+
+
+
+Control Flow Statements:
+------------------------
+Imagine you are developing a login application
+
+1. If the username and password are correct , navigate to the home page.
+2. If the username and password are In correct , error message
+
+
+1. Conditional Statements
+2. Looping Statements
+3. Jump Statements
+
+
+Suppose I ask you to Print Hel World 100 times .
+
+Will you write console.log 100 times ?
+
+No.
+
+Instead , we use loops.
+
+Loops allows us to execute the same block of code repeatedly untill a condition becomes false or the iteration completes.
+
+for loop :
+----------
+
+The for loop executes a block of code repeatedly for a specified number of iterations.
+
+Syntax:
+
+for(initialization; condition; increment/decrement)
+
+{
+
+   // Statements
+
+}
+
+Print numbers from 1 to 5
+
+i= 1  i<=5 i++ (i=i+1)
+
+i=1 , 1<=5 (1<5 or 1=5) ---> (1) ---> i=1+1=2
+
+i=2 , 2<=5 (2<5 or 2=5)) --->2 ---> i= 2+1 =3
+
+i=3 , 3<=5 , (3<5 or 3=5) ===> 3 ---> i= 3+1 =4
+
+i=4 , 4<=5 , (4<5 or 4=5) ---> 4 ---> i= 4+1 = 5
+
+i=5 , 5<=5 , (5<5 ,5=5) ---> 5 ---> I= 5+1
+
+i=6 , 6<=5 (false) exit the loop
+
+
+for(let i:number=1;i<=100;i++)
+{
+    console.log("Hello World")
+}
+
+
+
+Print even numbers :
+
+2
+4
+6
+8
+10
+
+for(let i:number=2;i<=10;i+=2)
+{
+    console.log(i)
+}
+
+
+Print the Odd Numbers :
+
+1
+3
+5
+7
+9
+
+5 * 1 = 5
+
+5 * 2= 10
+
+5 * 3 = 15
+--------
+ 5* 10 = 50
+------------
+
+let tablenumber: number = 5;
+
+for(let i:number; i<=10; i++)
+{
+  console.log(tablenumber +  " X" + i + " = "+(tablenumber*i))
+
+}
+
+5
+10
+15
+20
+
+While Loop:
+----------------
+
+The while loop executes repeatedly as long as the given condition is true.
+
+Syntax:
+while(condition)
+{
+   
+   // Statements
+
+}
+Print 1 to 5 number
+
+let i : number =1
+
+while(i<=5)
+{
+  console.log(i);
+  i++;
+
+}
+Iteration 1 :
+
+1. let i=1 initializes the counter.
+2. While(1<=5) true
+3. console.log(1)
+4. i=1+1 ; 2
+
+Iteration 2 :
+
+1. let i=2 
+2. While(2<=5) true
+3. console.log(2)
+4. i=2+1 ; 3
+
+Iteration 5 :
+
+1. let i=5 
+2. While(5<=5) true
+3. console.log(5)
+4. i=5+1 ; 6
+
+Iteration 6 :
+
+1. let i=6
+2. While(6<=5) false - exit the loop
+
+
+
+
+do-while Loop:
+--------------
+The do while loop executes the block at least once before checking the condition.
+
+Syntax:
+
+do
+{
+  // Statements
+
+} while(condition)
+
+
+let i : number=1
+do
+{
+  console.log(i);
+  i++;
+
+} while(i<=5);
+
+
+
+
+
+for..of loop :
+--------------
+The for...loop is used to iterate over values of iterablee objects such as arrays and strings.
+let browsers: string[] =["chrome","Firefox","Edge"]
+for(let browser of browsers)
+{
+    console.log(browser)
+}
+
+1. browsers - Contains three browser names.
+2. for - starts the loop
+3. let browser - Stores the current array value.
+4. of browsers - Get values from the array one by one
+5. console.log(browser) - Prints the current value.
+
+
+for...in Loop :
+---------------
+The for.. in loop iterates over the  properity keys of an object.
+
+let student ={
+
+name: "Suresh",
+age : 27 ,
+course : "Playwright"
+
+}
+
+for(let key in student)
+{
+  console.log(key)
+  console.log(student[key as keyof typeof student])
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Control Flow Statements - for loop , while loop , do-while loop , break , continue.
+2. Arrays
+3. Strings
+
+Control Flow Statements:
+------------------------
+
+Suppose I sk you to print Hello Five times , what will you do ?
+
+console.log("Hello")
+console.log("Hello")
+console.log("Hello")
+console.log("Hello")
+console.log("Hello")
+
+
+A loop helps us execute the same block of code repeatedly without writing the same code again and again.
+
+
+for(let num:number=1;num<=5;num++)
+{
+   console.log("Hello")
+
+}
+
+A for loop is a control flow statement that executes a block of code repeatedly as long as a specified condition is true.
+
+
+Syntax :
+
+for(initialization; condition ; increment/decrement)
+{
+   // Statements
+}
+
+
+Understanding the for loop:
+--------------------------
+
+1. Initialization
+
+let i=1 - Where should the loop start ?
+
+2. Condition - How long should the loop execute ?
+
+3. Increment - i++
+
+How should the value change ?
+
+
+for(let i=1; i<=5;i++)
+{
+
+   console.log(i);
+}
+
+1. for - Keyword used to create loop
+2. () - Starts and end the control section
+3. let i=1 - Initialize the variable
+4. i<=5 - Checks whether the loop should continue.
+5. i++ - Increases i by one.
+6. console.log(i) - Prints the current value.
+
+How does the loop execute ?
+
+Initialization     Condition     In Loop - Print      Increment / Decrement
+
+i =1                 1<=5        console.log(1);        i++ ---> i= i+1(1+1) = 2 
+
+i= 2                 2<=5        console.log(2);         i= 2+1 = 3
+
+i=3                  3<=5        console.log(3);        i= 3+1= 4
+
+i=4                  4<=5        console.log(4);        i= 4+1 = 5
+
+
+i=5                  5<=5       console.log(5);         i= 5+1 = 6
+
+
+i=6                  6<=5       exit loop
+
+
+
+Undestanding Increment and Decrement:
+-------------------------------------
+
+Operator              Meaning                Example
+
+i++                  Increase by 1           1 ,2 , 3 , 4
+
+i--                  Decrease by 1          5, 4 , 3 , 2 ,1
+
+i+=2                 Increase by 2          1, 3 , 5
+
+i+=5                Increase by 5          5 , 10 , 15
+
+i-=2               Decrease by 2          10 , 8 ,6
+
+
+Print numbers from 1 to 10:
+---------------------------
+
+for(let i =1 ; i<=10 ; i++)
+{
+  console.log(i);
+
+}
+
+1. for - Starts the Loop
+2. let i=1 Starts Counting from 1
+3. i<=10 - Continues until 10
+4. i++ - Increases the number by one
+5. console.log(i) - Prints the current number.
+
+
+Print numbers from 10 to 1:
+---------------------------
+for (let i=10; i>=1;i--)
+{
+  console.log(i)
+   
+}
+
+Print even numbers from 1 to 20:
+-------------------------------
+
+let i=2 --> i<=20 --> i+=2 ---> i = i +2
+
+4 +2 = 6
+
+6+2 = 8
+
+8+2 = 10
+
+10 + 2 = 12
+
+12+2 = 14
+14+2 =16
+
+16+2 = 18
+
+18+2 = 20
+
+
+for(let i=2 ; i<=20; i+=2)
+{
+    console.log(i);
+}
+
+while loop :
+------------
+A while loop is used to execute a block of code repeatedly as long as a condition is true.
+
+Imagine I want to print numbers from 1 to 5 , I could write five console.log() statements , but that would repeat the same code, Instead , I can use  a while loop , It checks a condition before every execution and repeats the code until the condition become false.
+
+
+Syntax:
+
+Initialization;
+
+while(condition)
+{
+    // Statements
+    // Increment or Decrement
+
+}
+
+
+1. Initialization - Create and assigns the starting value
+2. while - tells typescript to start a while loop
+3. condition - checks whether the loop should execute
+4. increment / decrement - changes the value so the condition can eventually become false.
+
+How does it work ?
+
+Print numbers from 1 to 5
+
+let i=1
+
+while(i<=5)
+{
+  console.log(i);
+  i++;
+
+}
+
+Iteration           i condition          Output    Increment 
+
+1                 1<=5 true                1        i = 1+1 = 2
+
+2                 2<=5 true                2        i=3
+
+3                 3 <=5 true               3       i=4
+
+4                 4 <=5 true               4       i=5
+
+5                 5 <=5 true               5       i=6
+
+
+6                 6<=5 false      exit 
+
+
+Difference between for and while :
+
+
+for                                
+
+1. Best when the number of repetitions is known
+2. Intialization , condition , and update are in one line
+3. Commonly used for counting
+
+
+while :
+
+
+1. Best when repetitions depend on conditions
+
+2. These can be written separately.
+
+3. Commonly used for condition bases repeatition.
+
+
+Real Time example of for Loop :
+
+Scenario : Testing 5 different login users
+
+Imagine you are working on a amazon like application.
+
+You have 5 users , and you need to test the login functionality for all 5 users.
+
+Without loop , you might write:
+
+console.log("Testing User 1");
+console.log("Testing User 2");
+console.log("Testing User 3");
+console.log("Testing User 4");
+console.log("Testing User 5");
+
+
+What if you have 1000 users ?
+
+for (let i =1 i <=5 ; i++)
+{
+  console.log("Testing User 1"+i);
+
+}
+
+
+
+Imagin you have 5 products on e-commerce website , you want to print all product names?
+
+import {test,expect} from '@playwright/test';
+
+test('Print all Product names', async ({page})=>{
+
+await page.goto("https://saucedemo.com/")
+
+const products= page.locators('.inventory_item-name');
+
+const count = await products.count();
+
+for(let i=0 ; i<count ; i++)
+{
+
+   console.log(i);
+   console.loog(productName);
+}
+
+
+})
+
+Because we know the number of products using count()
+We want  iterate through every product one by one.
+
+
+While:
+
+Scenario : Waiting for an ATM transaction
+
+Imagine you visit an ATM and withdraw 5000,
+
+After entering your PIN and withdrawal amount , then ATM displays :  Please wait unitl the transaction is completed.
+
+
+
+How many seconds will the ATM take ?
+
+Some times 5 seconds
+Some times 10 seconds
+Some times 20 seconds
+Some times 30 seconds
+
+
+Do you know the exact number of seconds in adavance ?
+
+
+No!
+
+
+You need to keep the checking the transaction status until it becomes SUCCESS or FAILED
+
+
+let transactionStatus="Processing";
+let attempt=3;
+while(transactionStatus==="Processing")
+{
+   console.log("Checking tranaction status, attempt number: "+attempt);
+   if(attempt===3)
+   {
+      transactionStatus="Success";
+   }
+   else
+   {
+    console.log("Transaction is still processing, please wait for some time");
+   }
+   attempt++;
+}
+console.log("Transaction completed with status: "+transactionStatus);
+
+
+
+Why WHILE Loop ?
+Because we don't know in adavance how many checks are required,
+
+We continue checking until the transaction status changes.
+
+
+
+
+
+Scenario : Wait until an order is successfully placed 
+
+Imagine you are autmating an e-commerce application.
+
+Your test flow :
+
+1. Login
+2. Select Product
+3. Add to cart
+4. Checkout
+5. Place order
+6. Wait for order confirmation 
+
+Sometimes the orderconfirmation takes 3 seconds , some times it 8 seconds
+We don't assume the exact time.
+
+let Status="";
+let attempt=10;
+while(Status!=="Success" && attempt<10)
+{
+   console.log("Checking tranaction status, attempt number: "+attempt);
+   if(attempt===3)
+   {
+      Status="Success";
+   }
+
+}
+
+
+
+We don't know exqactly when the order will complete
+
+
+
+
+
+
+do-while Loop :
+---------------
+
+A do.. while loop executes the code block at least once , even if the condition is false.
+
+In Normal while loop , first we check the condition and then execute the code, But in do while loop , first we execute the code and then check the condition.
+
+Syntax :
+
+do{
+
+// Statements to execute
+
+
+} while(condition);
+
+
+do - Starts the Loop
+
+while () - checks whether the loop should repeat.
+
+Prin numbers from 1 to 5:
+
+let i=1;
+do
+{
+
+console.log(i);
+i++;
+
+
+}while(i<=5)
+
+Initialiation    Loop Execution         Condition Check  Output
+
+i=1               console.log(1)
+                  i= i+1 - i =2           2<=5             1
+
+i=2              console.log(2)
+                 i=3                     3<=5             2
+
+
+i=3              console.log(3)
+                 i=4                     4<=5		 3
+
+i=4            console.log(4)
+               i=5                      5<=5             4
+
+i=5          console.log(5)
+             i=6                       6<=5              5
+
+
+break and Continue : Jump Statements
+--------------------
+
+
+What is break ?
+
+The break statement is used to stop the loop immediately , even if the loop condition is still true.
+
+Imagine students are standing in a queue. The teacher says , once student number 5 enters the class room, stop the process. We don't need to check the remaining students.
+
+Print numbers from 1 to 10 , but stop 5.
+
+for(let i=1; i<=10;i++)
+{
+    console.log(i)
+    if(i===5)
+    {
+        break;
+    }
+}
+
+
+
+Iteration   Condition       Loop    Check If condition    Increment Output
+
+
+1            1<=10           1         1===5                2         1
+
+2            2<=10           2         2===5                3         2
+
+3            3<=10           3         3===5                4         3
+
+
+4            4<=10           4         4===5                5         4
+
+
+5            5<=10           5         5===5            exit the loop  5
+
+
+
+Continue Statement:
+-------------------
+The continue statement is used to skip the current iteration and move to the next iteration.
+
+It does not stop the loop
+
+Imagine a techer asks student to count from 1 to 10 but says don't say number 5 , When students reach 5 , they skip it and continue from 6. This is how continue works.
+
+
+
+Iteration   Condition       Loop    Check If condition    Increment Output
+
+
+1            1<=10           1         1===5                2         1
+
+2            2<=10           2         2===5                3         2
+
+3            3<=10           3         3===5                4         3
+
+
+4            4<=10           4         4===5                5         4
+
+
+5            5<=10           Skip        5===5               6          Skip 5
+
+6            6<=10           6          6===5               7         6
+
+7            7<=10           7          7===5               8      7
+
+8            8<=10           8          8===5              9       8
+
+9            9<=10           9          9===5              10        9
+
+10          10<=10          10         10===5             11        10
+
+
+11           11<=10   exit the loop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
