@@ -2474,6 +2474,340 @@ console.log(numbers);
 
 
 
+Functions in TypeScript:
+------------------------
+
+Imagine that everyday we perform certain activities. For example
+
+1. Brushing our teeth
+2. Preparing breakfast
+3. Travelling to the Office.
+4. Sending an emails
+5. Calculating our monthly salary.
+
+Suppose we perform the same calculations 100 times. 
+Should we write the calculation logic 100 times?
+
+No!
+
+Instead , we write the logic once and reuse it whenever required.
+That is exactly , why we use functions in programming.
+
+
+Definition:
+
+A function is a reusable block of code designed to perform a particular task.
+It executes when we call or invoke it.
+
+
+Why Do We need Functions ?
+
+1. Code reusability
+2. Avoid code duplication
+3. Easy maintain
+4. Better Readability
+5. Code organization.
+6. Easy debugging.
+7. Separation of responsibilites
+8. Improved Testing
+9. Scalability.
+
+
+Real Time Example:
+
+without Function :
+
+
+let a =10;
+let b=20;
+console.log(a+b)
+
+let x=50;
+let y = 60;
+console.log(x+y)
+
+
+let p=100;
+let q=200;
+console.log(p+q)
+
+
+function addNumber(a: number, b: number) {
+    return a + b;
+}
+let result=addNumber(10,20);
+console.log(result); // 30
+console.log(addNumber(50,60)); // 110
+console.log(addNumber(100,200)); // 300
+
+
+
+Function Declaration :
+----------------------
+A function declaration defines a function using the function keyword.
+
+Syntax:
+
+function functionName(Parameters)
+{
+
+    // Function Body
+}
+
+
+Example:
+
+function greet():void{
+
+    console.log("Hello Students")
+}
+
+greet()
+
+1. function - Keyword used to declare a function
+2. greet - Function name
+3. ()  - Parameters Section 
+4. void - Function does not rturn a meaningful value
+5. {}  - Function Body
+6. greet() - Function Declaration
+
+
+Function Declaration with Parameters:
+-------------------------------------
+
+function studentDetails(name : string , age :number)
+{
+
+    console.log(name)
+    console.log(age)
+}
+
+studentDetails("Suresh",27)
+
+1. name and age are Parameters
+2. "Suresh" and 27 are arguments.
+
+Parameters vs Arguments:
+------------------------
+
+Parameter : A variable declared in the function Definition
+
+Argument : The actual value passed when calling the function
+
+
+Function with Return Value:
+----------------------------
+
+function calculateSalary(basicSalary : number, bonus : number): number {
+    let totalSalary = basicSalary + bonus;
+    return totalSalary;
+}
+
+Return sends a result from the function to back to the calling code or calling function.
+function calculateSalary(basicSalary : number, bonus : number): number {
+    let totalSalary = basicSalary + bonus;
+    return totalSalary;
+}
+
+let salary = calculateSalary(50000, 10000);
+console.log(salary); // Output: 60000
+
+
+function calculateSalary(basicSalary : number, bonus : number): number {
+    let totalSalary = basicSalary + bonus;
+    return totalSalary;
+}
+
+let salary = calculateSalary(50000, 10000);
+console.log(salary); // Output: 60000
+
+
+
+Types of Functions:
+-------------------
+
+1. Named Function :
+
+A function declared with a specific name is called a named function.
+
+function addition() : void {
+     let a=10;
+     let b=20;
+     console.log(a+b)
+}
+addition()
+
+Whenever we declare a function with a name , we call it a named function. Here , 
+our funciton name is
+addition . we can call it multiple times using the same name.
+
+
+Anonymous Function:
+-------------------
+
+A function without a name is called an anonymous function
+
+Usually , It is assigned to a variable or passed an argument.
+
+let greet = function (): void{
+    console.log("Hello Students")
+}
+
+greet()
+
+Here Observe the we have not provided any name after the function keyword. Instead ,
+
+We assigned the function to a variable. That is an anonymous function
+
+Function expreesion:
+--------------------
+When we store a function inside a variable , it is called a function expreesion.
+
+const multiplication=function (a:number, b:number): number
+{
+     return a*b;
+
+}
+console.log(multiplication(5,4));
+
+1. Anonymous function describes a function without a name.
+2. Function expression describes how function is asssigned to a variable.
+
+A function expression can contain either an annymous function or a named function.
+
+
+Arrow Function :
+----------------
+Arrow functions provide a shorter syntax for writing the functions
+They are widlely used in modern JavaScript , TypeScript and Playwright.
+
+Syntax:
+
+const functionName = (Parameters) : returnType => { // Logic}
+
+Without Parameters:
+
+const Welcome= () : void => {console.log("Welcome to Playwright")}
+With Parameters:
+
+const addition = (a:number , b:number) : number => 
+
+{
+
+    return a+b;
+}
+console.log(addition(10,20))
+
+Single Line arrow Function:
+
+const square = (num : number) : number => num * num;
+
+
+
+// Without Parameters
+
+const Welcome= () : void =>
+     {console.log("Welcome to Playwright")}
+
+Welcome();
+
+// With Parameters
+const addition1 = (a:number , b:number) : number =>
+
+{
+
+    return a+b;
+}
+console.log(addition1(10,20))
+
+//Single Line arrow Function:
+
+const square = (num : number) : number => num * num;
+console.log(square(5))
+
+
+Arrow functions are very important in Playwright . You will see them in test blocks, call backs 
+array methods , and asynchronous operations.
+
+The arrow symbole is =>.
+
+We use it to define a function in a shorter way. One Important difference is that arrow functions
+do not have their own this value.
+
+
+Optional Parameters:
+---------------------
+
+Some times , passing all Parameters is not mandatory.
+
+Typescript provides optional paramters using ?.
+
+
+function employeeDetails
+(
+    name: string,
+    age?:number
+): void{
+    console.log("Name"+name)
+    console.log("Age"+age)
+}
+employeeDetails("Suresh")
+employeeDetails("Ravi",25)
+
+
+Default Parameters:
+---------------------
+A Parameter has a predefined value.
+If the caller does not pass an argument , the default value will be used.
+
+function browserName(browser : string = "chromium") : void
+{
+
+   console.log("Browser"+browser);
+
+}
+browserName()
+browserName("firefor")
+browserName("webkit")
+
+
+function browserName(browser : string = "chromium") : void
+{
+
+   console.log("Browser "+browser);
+
+}
+browserName("chrome")
+browserName("firefor")
+browserName("webkit")
+
+
+Optional Parameters and Default Parameters looki similar, but their behaviour is different.
+
+Optional Paramters may be receive undefined . Default paramters receive  a predefined value When
+no argument is supplied.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
