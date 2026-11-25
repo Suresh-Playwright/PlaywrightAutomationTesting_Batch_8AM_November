@@ -2789,6 +2789,273 @@ no argument is supplied.
 
 
 
+Object Oriented Programming :
+----------------------------
+
+OOPS - Object Oriented Programming
+
+It is a programming approach , where we organize code using Classes and Objects.
+
+In TypeScript , we mainly learn these four pillars:
+
+1. Encapsulation
+2. Inheirtance
+3. Polymorphism
+4. Abstraction
+
+Other Important concepts include:
+
+1. Class and Object
+2. Constructor
+3. Access Modifiers
+4. Static Members
+5. Getters and Setters
+6. Method Overloading
+7. Interfaces
+
+
+
+Class and Object :
+-------------------
+What is a Class ?
+
+A class is a Blur Print or template used to create objects.
+
+
+Realtime example:
+
+Consider a car manufacturing company.
+
+1. Car is  class.
+2. BMW , Audi  and TATA are objects.
+3. Color , model  and speed are properties.
+4. Start , stop and accelerate are methods.
+
+class Car 
+{
+    brand : string = "BMW";
+    color : string = "Black";
+
+    start()
+    {
+        console.log("Car Started");
+    }
+    stop()
+    {
+        console.log("Car Stopped")
+    }
+}
+// Creating Object
+
+const car1 = new Car();
+
+console.log(car1.brand)
+console.log(car1.color)
+
+car1.start()
+car1.stop()
+
+
+Constructor:
+-----------
+Instead of assigning all these values separately after creating an object,
+can we initialize them automatically when the object is created ?
+
+Yes
+
+A Constructor is a special method inside a class that automatically executes
+whenever we create an object using the new keyword
+
+Its primary purpose is to initialize object properties.
+
+class AudiCar
+{
+
+    brand : string;
+    color : string;
+
+    constructor()
+    {
+        this.brand="Audi"
+        this.color= "Black"
+    }
+
+    start()
+    {
+        console.log("Car is Started")
+    }
+    stop()
+    {
+        console.log("Car is Stopped")
+    }
+    
+    
+}
+// Creating Object
+
+const car1 = new AudiCar();
+
+console.log(car1.brand)
+console.log(car1.color)
+car1.start()
+car1.stop()
+
+
+Types of Constructors:
+---------------------
+1. Default constructor
+2. No-Argument constructor
+3. Parameterized Constructor.
+
+
+Default Constructor:
+--------------------
+
+
+If a progammer does not declare any constructor inside a class . JavaScript provides
+an Implicit default constructor.
+
+
+class Employee
+{
+    empId :number=101;
+    empName : string ="Suresh";
+}
+const e1= new Employee();
+console.log(e1.empId)
+console.log(e1.empName)
+
+
+We have not written any constructor,
+
+Still , we have able to create an Object.
+
+
+TypeScript allows this because a default  constructor is provided Implicitly.
+
+Important: TypeScript is a superset of JavaScript. It provides static type 
+checking during development and compiles to JavaScript.
+
+
+No-Argument Constructor:
+------------------------
+A constructor that does not accept any paramters is called a No-Argument
+Constructor.
+
+class EmployeeStatus
+{
+    empId: number;
+    empName : string;
+
+    constructor()
+    {
+        this.empId=101;
+        this.empName="Suresh"
+    }
+
+    display(): void{
+        console.log(this.empId)
+        console.log(this.empName)
+    }
+}
+
+const emp1= new EmployeeStatus();
+
+emp1.display();
+
+
+Paramterized Constructor:
+--------------------------
+A constructor that accepts parameters is called as Parameterized Constructor
+
+class Student
+{
+    studentId : number;
+    studentName : string;
+    age : number
+
+    constructor(id:number, name : string , age :number)
+    {
+        this.studentId=id;
+        this.studentName=name;
+        this.age=age;
+    }
+    display(): void{
+
+        console.log("ID:", this.studentId)
+        console.log("Name:", this.studentName)
+        console.log("Age:", this.age)
+    }
+}
+const s1= new Student(101,"Ravi",22);
+s1.display()
+
+
+What is this Keyword ?
+
+The this keyword refers to the current object in a class instance context.
+
+Imagine I am standing in this class room and say :
+
+I am your tariner:
+
+Who am i referring to ?
+
+MySelf.
+
+Similary , In TypeScript , this inside an instance method or constructor
+refers to the current object.
+
+
+this means the current Object.
+
+
+class StudentInfo
+{
+     studentName : string;
+
+     constructor(studentName : string)
+     {
+        studentName= studentName;
+     }
+}
+
+const s1= new StudentInfo("Ravi");
+console.log(s1.studentName)
+
+
+Output:
+undefined;
+
+Because studentName= studentName
+assign the constructor parameter to itself.
+
+It does not initlize the class property.
+
+class StudentInfo1{
+
+
+    studentName: string;
+
+    constructor(studentName : string)
+    {
+        this.studentName= studentName;
+    }
+}
+
+const s2= new StudentInfo1("Ravi")
+console.log(s2.studentName)
+
+
+this.studentName = studentName
+
+this.studentName -----> Class Property
+Current Object Instance Variables
+studentName ----> Constructor Parameter;
+
+Value received from the object creation statement
+
+Assign the constructor parameter value to the current Object's property.
 
 
 
@@ -2796,19 +3063,162 @@ no argument is supplied.
 
 
 
+Have you ever seen a car ?
+
+What are the different components of car ?
+
+1. Engine
+2. Wheels
+3. Steering
+4. brakes
+5. Headlights
+6. Seats
+
+Instead of writing all the code in one place , we can organize our program using Classes
+and Objects.
+This is where Object Oriented Programming comes into the picture
+
+OOPs is a programming approach where we organize code using classes and objects
+
+The main purpose of OOPs is :
+
+1. Code reusability
+2. Data Security
+3. Code Mainrtainability
+4. Flexibility
+5. Real World modeling
+
+
+Four Pillars of OOP's:
+---------------------
+1. Encapsulation
+2. Inheirtance
+3. Polymorphism
+4. Abstraction
+
+Encapsulation: 
+
+Encapsulation is the process of binding data (variables) and methods into 
+single unit called  a class and restricting direct access to thatn data.
+
+- Encapsulation means data protection.
+
+
+Real Time Example - ATM Machine
+
+Imagine you have 50000 in your bank account.
+
+Can you directly open the bank's data base and change your balance to one lakh ?
+
+No !
+
+Why ?
+
+Because banks  protects their customer data.
+
+You can access your account through authorized operations such as :
+
+1. Check balance
+2. Deposit Money
+3. withdraw Money
+4. Transfer Money
+
+You cannot directly modify the internal database.
+
+Similary , In TypeScript , we can protect properties using access Modifiers
+such as Private.
+
+We provide controlled access using public methods or  getters and setters.
+
+Access Modifiers in TypeScript:
+-------------------------------
+
+public - Accessible from anywhere
+
+private - Accessible ony inside the declaring the class
+
+protected - Accesible inside the declaring class and it's subclass.
+
+public is the default access Modifier for class memebers.
+
+
+
+class BankAccount
+{
+    balance : number = 50000;
+}
+const account = new BankAccount();
+
+account.balance=100000;
+console.log(account.balance)
+
+Here , teh balance property is publicly accessible .
+
+Anyone can modify the balance without validation.
+
+Is this a  good programming practice ?
+
+No!
+
+We need to protect the data.
+
+class AxisBank
+{
+    private balance : number = 50000;
+
+    public Deposit(amount : number) : void{
+           
+        if(amount >=0)
+        {
+            this.balance+=amount; // this.balance= this.balance+amount
+            // this.balance= 50000+ 10000;
+            // 60000
+            console.log("Balance is Updated")
+        }
+
+        else{
+            console.log("Invalid Balance")
+        }
+        
+
+
+    }
+
+    public CheckBalance(): number
+    {
+          return this.balance
+    }
+
+}
+
+const axis= new AxisBank();
+
+axis.Deposit(10000);
+console.log(axis.CheckBalance())
+axis.Deposit(-10000);
+console.log(axis.CheckBalance())
 
 
 
 
+ private balance : number = 50000;
 
+ This is a private properity , we cannot access this property directly from outside of The
+ class.
 
+public Deposit(amount : number) : void
 
+This is the public method . It allows us to update the balance with validation.
 
+public CheckBalance(): number
 
+This method returns the current balance
 
+this.balance+=amount
 
+this is refers to the current object . It helps us access the current objet 's 
 
-
+properties and methods.
 
 
 
