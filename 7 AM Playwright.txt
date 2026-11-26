@@ -3221,6 +3221,109 @@ this is refers to the current object . It helps us access the current objet 's
 properties and methods.
 
 
+Abstraction :
+Abstraction is the process of hiding internal implementation details and showing only
+essential functionality to the user.
+
+
+We tell the user WHAT an object can do.
+We hide HOW that functionality is implemented Internally.
+
+
+
+
+How do you Implement Abstraction ?
+
+TypeScript supports abstraction primarily through:
+
+1. Abstraction Classes
+2. Interfaces
+
+
+Abstract Classes :
+
+An Abstract class is a class that cannot be instantiated directly.
+
+It is designed to be inherited by other classes.
+
+
+abstract class ClassName{
+
+    abstract methodName(): void;
+    normalMethod():void { console.log("Normal Method")}
+}
+
+
+1. Use the abstract keyword
+2. You cannot create an object of an abstract class
+3. An abstract class contain abstract methods
+4. It can also contain implemented methods.
+5. Child Classes must implment inherited abstract methods
+6. Abstract classes can have constructors and properties
+
+
+Example 1 :  Vehicle Abstraction
+
+Requirement :
+
+Every Vehicle should start its engine , but each Vehicle has its own engine starting 
+implementation.
+
+abstract class Vehicle
+{
+    abstract startEngine(): void;
+
+    stopEngine(): void{
+        console.log("Engine Stopped")
+    }
+}
+class Car extends Vehicle
+{
+    startEngine(): void {
+        console.log("Car Engine Started")
+    }
+}
+
+class Bike extends Vehicle
+{
+    startEngine(): void {
+        console.log("BIKE Engne Started")
+    }
+}
+// Creating Objects
+
+const car = new Car()
+car.startEngine()
+car.stopEngine()
+const bike= new Bike()
+bike.startEngine()
+bike.stopEngine()
+
+
+1. Vehicle is an abstract class.
+2. startEngine() is an abstract method
+3. stopEngine() is  a normal method.
+4. Car and Bike Inheirtance the Vehicle classes
+5. Each child class provides its own implementation of startEngine()
+
+
+Interface :
+
+An interface defines the structure or contract that class must follow.
+
+It tells us which properities and methods are required , without providing their
+implementation.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
