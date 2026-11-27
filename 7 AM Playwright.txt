@@ -3314,6 +3314,202 @@ An interface defines the structure or contract that class must follow.
 It tells us which properities and methods are required , without providing their
 implementation.
 
+interface Employee
+{
+    empId : number;
+    empName : string;
+    login() : void;
+    logout(): void;
+    status() : void;
+}
+class Developer implements Employee
+{
+    empId: number=101;
+    empName: string= "Suresh";
+    login(): void {
+        console.log("Developer Logged In")
+    }
+    logout(): void {
+        console.log("Developer Logout")
+    }
+    status(): void {
+        console.log("Passed")
+    }
+}
+const developer = new Developer()
+developer.login()
+developer.logout()
+developer.status()
+
+
+Inheirtance:
+------------
+
+Inheirtance is an OOP concept that allows one class (child / derived class) to acquire properties
+and methods from another class (parent / base class.)
+
+Syntax :
+
+class parent
+{
+     // Properties and methods
+}
+class Child extends parent{
+
+    // Additionally properties and methods
+}
+
+
+class Vehicle1
+{
+    start(): void{
+        console.log("Vehicle Started")
+     }
+     stop(): void{
+        console.log("Vehicle Stopped")
+     }
+
+}
+class Car1 extends Vehicle1
+{
+    drive(): void{
+         console.log("Car is Driving")
+    }
+}
+
+const car1 = new Car1();
+car1.start()
+car1.stop()
+car1.drive()
+
+
+
+Constructor and Super():
+
+class Employee
+{
+    public name : string;
+    public employeeId : number;
+    constructor( name:string,  employeeId:number){
+
+        this.name= name;
+        this.employeeId=employeeId
+
+    }
+    displayDetails(): void{
+
+        console.log(this.name)
+        console.log(this.employeeId)
+    }
+}
+
+class Developers extends Employee{
+
+    public technology: string;
+    constructor(name : string , employeeId: number, technology: string)
+    {
+            super(name,employeeId)
+            this.technology= technology;
+    }
+    writeCode():void{
+        console.log(`Working with ${this.technology}`)
+    }
+
+}
+
+const developers= new Developers("Suresh", 101 , "TypeScript");
+developers.displayDetails()
+developers.writeCode()
+
+
+
+Method Overriding:
+
+
+Method Overriding means a child class provides its wn implementation of a method inherited from 
+its parent.
+
+class Animal
+{
+    sound(): void{
+        console.log("Animal makes a sound")
+    }
+}
+
+class Dog extends Animal{
+
+    override sound(): void{
+         console.log("Dog Barks")
+    }
+}
+
+class Cat extends Animal{
+
+    override sound(): void {
+         console.log("Cat meows")
+    }
+}
+const dog= new Dog()
+const cat = new Cat()
+dog.sound()
+cat.sound()
+
+
+Calling parent Method using super:
+class Bank
+{
+    calculateInterest(): void {
+        console.log(" Default Interest Calculation")
+    }
+}
+class SavingsAccount extends Bank{
+
+    override calculateInterest(): void {
+         super.calculateInterest()
+         console.log("Savings account Interest calculator")
+    }
+}
+
+const account = new SavingsAccount();
+
+account.calculateInterest()
+
+
+TypeScript Supports single , multilevel Inheirtance , it does not support multiple Inheirtance of 
+classes.
+
+Polymorphism:
+
+Poly - many
+Morphism - Forms
+
+One thing behaving in many different Forms
+
+1. Compiletime - Methodoverloading
+2. Runtime - MethodOverriding
+
+class Calculator
+{
+    add(a: number , b:number):number;
+    add(a:number, b:number, c:number):number;
+    add(a:number, b:number, c?:number):number{
+        if(c!=undefined)
+        {
+            return a+b+c
+        }
+        return a+b;
+    }
+
+  
+}
+const calc= new Calculator()
+console.log(calc.add(10,20))
+console.log(calc.add(10,20,30))
+
+
+
+
+
 
 
 
